@@ -1,0 +1,137 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  background-color: #000000ff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-navbar {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+   margin-left: 60px;
+}
+
+.imgLogo {
+  width: 60px;
+  height: 30px;
+  margin: 10px;
+}
+
+.ancoras {
+  display: flex;
+  justify-content: flex-end
+  color: white;
+  text-decoration: none;
+  gap: 10px;
+  margin-right: 60px;
+}
+
+.navegacao {
+  color: white;
+  text-decoration: none;
+}
+
+/* Cabeçalho */
+
+/* Seções */
+section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos */
+h2 {
+  margin-bottom: 15px;
+  color: #007bff;
+  font-size: 1.2rem;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+}
+
+/* Listas */
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+/* Gráficos */
+canvas {
+  max-width: 100%;
+  margin-top: 15px;
+}
+
+/* Layout responsivo */
+/* @media (min-width: 768px) {
+  body {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+} */
+
+
+/* usuraios */
+
+#usuarios-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.usuario-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.usuario-item:nth-child(even) {
+  background: #f9f9f9; /* zebra effect */
+}
+
+.usuario-nome {
+  font-weight: bold;
+  color: #333;
+  width: 150px;
+}
+
+.usuario-email {
+  color: #555;
+  flex: 1;
+}
+
+.usuario-tipo {
+  font-style: italic;
+  color: #007bff;
+}

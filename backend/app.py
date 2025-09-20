@@ -194,6 +194,53 @@ def relatorios():
         for r in rows
     ])
 
+    # ==============================
+# Burndown Chart
+# ==============================
+@app.route("/burndown")
+def burndown():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    # Conta tarefas por dia de sprint (ajuste as datas se precisar)
+    cur.execute("""
+        SELECT sprint, status, COUNT(*)
+        FROM backlog
+        GROUP BY sprint, status
+        ORDER BY sprint
+    """)
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    # Montar dados: total por sprint e concluídas
+    sprints = {}
+    for r in rows:
+        sprint = r[0]
+        status = r[1].lower()
+        qtd = r[2]
+
+        if sprint not in sprints:
+            sprints[sprint] = {"total": 0, "concluidas": 0}
+
+        sprints[sprint]["total"] += qtd
+        if status in ["feito", "concluido", "done"]:
+            sprints[sprint]["concluidas"] += qtd
+
+    # Converter para lista ordenada
+    labels = sorted(sprints.keys())
+    total = [sprints[s]["total"] for s in labels]
+    concluidas = [sprints[s]["concluidas"] for s in labels]
+    restantes = [t - c for t, c in zip(total, concluidas)]
+
+    return jsonify({
+        "labels": labels,
+        "total": total,
+        "concluidas": concluidas,
+        "restantes": restantes
+    })
+
+
 # ==============================
 # Run
 # ==============================

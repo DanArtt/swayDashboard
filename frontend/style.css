@@ -49,7 +49,22 @@
 }
 
 /* Cabeçalho */
+.section-content-backlog {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
+#organizar-btn {
+  padding: 8px 16px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 /* Seções */
 section {
   background: #fff;
@@ -134,4 +149,11 @@ canvas {
 .usuario-tipo {
   font-style: italic;
   color: #007bff;
+}
+
+/* Backlog */
+
+.backlog-content {
+display: flex;
+flex-direction: column;
 }
